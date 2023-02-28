@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "lenokids",
+  "private_key_id": "349568819cd875bc3155c04bdebbb98fd648306f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDXSC3ecd5n4iyn\no/z/eR7LcBtTASh1tkEMKVAuEO7MFEluA8oDblSUnSNeLmSQuwCMkbuwN/+VGXu1\nhU3lqM9tZ+U2qoWIbZfqrQroP47cHgUXTojf+yMtp3VUugxqlsqVqjTQDwgGsBp9\nAukeXzxo32DV1ecrKYFuAo5C+K2NBqic651TYEvxXHOL0vFU0IxVQXt17bVeM+Oe\nrNcJhhrVHbbLIYE+B8+phMn5+tGceJ1XWJ8IYCLhQb26UxqDt4VN2/PLCjsFGD6m\n4zm2k8zqbanHO6Tbqb4zDcUsbF84DFs3IDyCgXE0xvqEqtNsP+5VZne6aJGbvYdL\nf1nmdRXhAgMBAAECggEAA9CexkygOq5Vg56TzI2/jyP4VPzIqXOCdLS8S9uvP/Yw\nUgL0IuJNsluUQXkQSB0LOq0isqyfB/wCubildNdXE9Q5xGxU8lIRsAtogwKiKBoK\nAFkrErqGi5/2U8sko7nSjatIP9izWAXUVgCoeO9/uzKcVVUS0Wcic4yiVh3GEAvy\nGWXB3GNHsWLqXAhxidKViaEOOUtRsfK6L2iO4Bxyc4cNgfVCjzOerwPSaFSDHBRv\nscGKA8sB4krvYlT8hd0aYXT9X9+9jGF5NgEnzONIci2afLBvNGE/A4m5bEvdluzV\n2gE+L6ylajY4GZfe21sRu2x1emQOiESsnbsOd+LgsQKBgQD3pFD4PpHfNUQFL/ia\nkpuNDQ4kN9VJhYmy7Cyh5Gtq+Uj8YShhBLZNxqCTsifyRAKVcIX9Ah8eTRI+Dqly\nt5AoiA9wmVicEFyf8P/peT89ZJfpST1+4dvpySM8Eby8qK6nqVXGh7Ss+Tq7L3HU\npGIlFgx817gXzuZpwktZ2Cu9sQKBgQDejEQDWl4bGfK6mATr9c/LYgaUW79zngwC\ng6trLFp0ydeFkUjGszlQCfPiaMcWhnPP4O4LahBIHdW8DlpkOgemIGun5NySYzlw\nZaJUM9Ci6Tmq9DB56zYTiq0J+E3MIU3eyzha0gisG7PbQuDORcEL17FBkmAbwDiO\n5CmLpxD3MQKBgAuqKsI2uEpKSQTxiIVHaJpRRhxAoQRQjPbnlwadKs4kJeL1dKB1\nR10MgR3T43vO5kxBu536TprvyG8x45tquBigqBGGt5zKTIKgKH3H30m2Bk3PzFzA\nqMovVkCLGVfNnkR5fnfWhpUrPC/7ASKiB5l1m2r6AkrkzQeoRkJaI11RAoGBAIdj\nkeTwTxvxt0dpQGVEj/vNUO9kuZ5e4jONYvW6b/Vo7eLmNf4b/pwA0gxFbgj4FvC6\niFcNWYZmECduG/Opkgmw442qn722+7SzQAQ12ZGijWDBWdRyEd3lmcvc8YdkI3mM\n7GXkLT53Q/36O8WBjiXkPIQFxs5bLI1RpSy+oIWhAoGAK5pK9l2C934hHKVbG9gF\n/SxZ1/AbgYtFqVK0RbH17y0yGn4NbduiTJNeziea3C1XN6IhZmSrUmpX5ZYq+3Ov\nP2nfLj4oEG5fqGKgN62tFUXNcg/P5ck+RZc4tXv3yXIwN5KyGMXgnmuu1f3z3e6A\ntBsQXwniSb5UqX5D7Qj0FZQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "lenokidservice@lenokids.iam.gserviceaccount.com",
+  "client_id": "107202616357548000586",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lenokidservice%40lenokids.iam.gserviceaccount.com"
+}
