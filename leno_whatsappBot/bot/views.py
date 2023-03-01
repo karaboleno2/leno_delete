@@ -232,8 +232,7 @@ def bot(request):
             return http.HttpResponse("200")
         
         ## parents menu
-        match stepP:
-            case 'pmenu':
+        if stepP ==  'pmenu':
                 # monitor child
                 if ('m' == request.POST['Body'].lower() or 'monitor' in request.POST['Body'].lower()):
                     message = client.messages.create(
@@ -304,7 +303,7 @@ def bot(request):
                 return http.HttpResponse("200")
             
             # registation 2nd and 3rd steps
-            case 'register':
+        if stepP == 'register':
                 if ('@' in request.POST['Body'].lower()):
                     message = client.messages.create( 
                         from_=f'whatsapp:{businessphone}',  
@@ -350,7 +349,7 @@ def bot(request):
                         body="*menu🏠",      
                         to=userPhone)
                 return http.HttpResponse("200")
-            case default:
+        else:
                 message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
                     body="Hey I don't get that ", 
@@ -383,8 +382,7 @@ def bot(request):
     classtoatted=int(wks.cell(row,17).value)        # getting class to attend 
     classlinks=wks2.row_values(classtoatted)        # getting classs links  wks2
     
-    match step:
-        case 'menu':
+    if step == 'menu':
             if ('1' in request.POST['Body'].lower() or 'class' in request.POST['Body'].lower()):
                 
                 wks.update('R'+row+'C17', classtoatted+1)       # incremeting to the next class
@@ -477,7 +475,7 @@ def bot(request):
                 sendMenu(userPhone)
             return http.HttpResponse("200")
         #classes
-        case 'classes':
+    if step == 'classes':
             if ( '✅' in request.POST['Body'].lower() or 'done' in request.POST['Body'].lower() or 'yes' in request.POST['Body'].lower()):
                 if len(classlinks)>1:
                     message = client.messages.create( 
@@ -537,7 +535,7 @@ def bot(request):
                     body=f"Hey {userName} are you done? \n ",      
                     to=userPhone)
             return http.HttpResponse("200")   
-        case 'handwritting':
+    if step == 'handwritting':
             
             if (request.POST['NumMedia']!='0'):
                 message = client.messages.create( 
@@ -578,7 +576,7 @@ def bot(request):
                     body="*Handwritting*✍ \n\n0. menu",      
                     to=userPhone)
             return http.HttpResponse("200")
-        case 'story':
+    if step == 'story':
             if ('done' in request.POST['Body'].lower() or 'yes' in request.POST['Body'].lower()  or 'thank' in request.POST['Body'].lower()):
                 message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
@@ -593,7 +591,7 @@ def bot(request):
                 sendMenu(userPhone)
                 wks.update('R'+row+'C14', 'menu')
             return http.HttpResponse("200")
-        case default:
+    else:
             message = client.messages.create( 
                 from_=f'whatsapp:{businessphone}',  
                 body="Hey I don't get that ", 
