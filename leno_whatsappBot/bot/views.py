@@ -1,6 +1,7 @@
 #Karabo Khomongoe
 #Khomongoeki@gmail.com
 #July-27-2022
+# python3 -c "import gspread; print(gspread.__version__)"
 
 import re
 import os
@@ -9,16 +10,13 @@ from django.shortcuts import render
 from more_itertools import first
 from twilio.rest import Client 
 from django.views.decorators.csrf import csrf_exempt
-import gspread
+import gspread  #5.4.0
 from oauth2client.service_account import ServiceAccountCredentials
 from pprint import pprint as pp
 import time
 #ml
 import os
-import tensorflow as tf
-from tensorflow import keras
-import cv2 as cv
-import numpy as np
+
 import requests
 from PIL import Image
 import smtplib, ssl
@@ -39,7 +37,8 @@ client = Client(account_sid, auth_token)
 
 colon= {'learnerPhoneNo	':'C1','learnerName	':'C2','learnerEmail':'C3','learnerAge':'C4','learnerGrade':'C5','parentsEmail':'C6','parentName':'C7','ParentNo':'C8','whatsappPaging':'C9','classes':'C10','story':'C11','pronouns':'C12','handwriting':'C13', 'step':'C14'}
 number= []
-new_model = tf.keras.models.load_model(JSONFILE+'keras_mnist.h5')
+
+dictionary = SpellChecker()
 
 #Quetions
 images={'parentmenu':'https://api.twilio.com/2010-04-01/Accounts/AC9cfdfeaa5bce698906cff658aaf42499/Messages/MMd9e423cdc26f9ef5148dfd062f478d0e/Media/MEce60bff49e9725772a4c9c16988d5ecd',
@@ -105,32 +104,7 @@ def sendMenu(userPhone):
         media_url="https://api.twilio.com/2010-04-01/Accounts/AC9cfdfeaa5bce698906cff658aaf42499/Messages/MM19081ef8e7f1834164245750b0c3a81c/Media/MEd88c575f39f5b44e14a62a30db192d18",
         to=userPhone)
 
-def predict(request):
-    userPhone=request.POST['From']
-    userName=request.POST['ProfileName']
-    userImage=request.POST['MediaUrl0']
-    print(userImage)
-    Image_url = userImage
-    image = Image.open(requests.get(Image_url, stream=True).raw)
-    # resizing and reshaping image
-    image = cv.resize(np.array(image), (28,28))
-    image = image.astype('float32')
-    image = 255-image
-    image /= 255
-    image = np.expand_dims(image, 2)
-    image=image[..., 2]
-    image= image.reshape(1,28*28)
-    # predict
-    y_pred = new_model.predict(image)
-    print("test=",np.argmax(y_pred) ," score=",100*y_pred[0][np.argmax(y_pred)])
-    score=100*y_pred[0][np.argmax(y_pred)]
-    test=np.argmax(y_pred)
-    message = client.messages.create( 
-        from_=f'whatsapp:{businessphone}',  
-        body="Awesome {0}🙌, \n your number ={1}, store ={2}% \n\nDo you what to continue❓\n0. menu🏠".format(userName,test,int(score)),      
-        to=userPhone)
-    
-dictionary = SpellChecker()
+
 
 def getWordSuggestions(word):
     candidates = dictionary.candidates(word)
@@ -543,8 +517,6 @@ def bot(request):
                     body="🙏 I give you feedback soon\n\nDo you what to continue❓\n0. menu🏠".format(userName),      
                     to=userPhone)
                 time.sleep(3)
-
-                predict(request) # check image sent by child.
 
                 ## Amazon rekognition here.
 
