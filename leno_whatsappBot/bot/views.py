@@ -32,7 +32,7 @@ businessphone= '+14155238886'
 JSONFILE= os.path.join('assets/')
 
 account_sid = 'AC9cfdfeaa5bce698906cff658aaf42499' 
-auth_token = '7e5c5878fb3ec4de2862094dda5d788e' 
+auth_token = '283d7e428b2317017d79901a2be35765' 
 client = Client(account_sid, auth_token)
 
 colon= {'learnerPhoneNo	':'C1','learnerName	':'C2','learnerEmail':'C3','learnerAge':'C4','learnerGrade':'C5','parentsEmail':'C6','parentName':'C7','ParentNo':'C8','whatsappPaging':'C9','classes':'C10','story':'C11','pronouns':'C12','handwriting':'C13', 'step':'C14'}
