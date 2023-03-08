@@ -69,15 +69,15 @@ def sendMenuParent(userPhone):
     message = client.messages.create( 
         from_=f'whatsapp:{businessphone}',  
         body="*SELECT A SERVICE👇* \n"+
-        "*M. Monitoring progrees 📊*\n"+
-        "Child's progress will be sent monthly or on-request.\n"+
-        "*📌Note*: your child must be registered\n\n"+
-        "*B. Bridged convestion🫱🏽‍🫲🏾*\n"+
+        "*R. Register your child📝*\n3️⃣ Easy steps \n\n"+
+        "*B. Bridged conversation🫱🏽‍🫲🏾*\n"+
         "Let me send messages to your child on your behalf.\n "+
         "*📌Note*: your child must be registered\n\n "+
+        "*M. Monitoring progress 📊*\n"+
+        "Child's progress will be sent monthly or upon request.\n"+
+        "*📌Note*: your child must be registered\n\n"+
         "*I. LENOKIDS for kids infoℹ️*\n"+
         "Lenokids packages📦 and pricing🔖.\n\n"+
-        "*R. Register you child📝*\n3️⃣ Easy steps \n\n"+
         "*C. Customer service📞*\n"+
         "Customer queries, complaints and support\n\n"+
         "*Feedback⭐*\n"+
@@ -96,7 +96,7 @@ def sendMenu(userPhone):
     message = client.messages.create( 
         from_=f'whatsapp:{businessphone}',  
         body= " \n\nHow can I help you today🤗? \nPlease choose from the options below: \n\n"+
-        "*1. Classes 🎒 and Games🎮*. \nLet us learn new things and play games together\n\n"+
+        "*1. Classes 🎒 and Games🎮*. \nLet's learn new things and play games together\n\n"+
         "*2. Story Telling*📖\n Do you love stories❓ \n\n"+
         "*3. Handwritting*✍\n Let me teach you how to write numbers and letters\n\n"+
         "*4. Define and pronounce*🗣 \n I can define and pronounce words for you \n\n"+
@@ -211,14 +211,14 @@ def bot(request):
                 if ('m' == request.POST['Body'].lower() or 'monitor' in request.POST['Body'].lower()):
                     message = client.messages.create(
                         from_=f'whatsapp:{businessphone}',  
-                        body="Okay you will get progress reports via email📧 soon\n\n 0. To show menu🏠 ",
+                        body="You'll get progress reports via email📧 soon. Thank you.\n\n 0. To show menu🏠 ",
                         to=userPhone)
                     return http.HttpResponse("200")
                 # Bridged Convestion
                 elif ('b' == str(request.POST['Body']).lower()):
                     message = client.messages.create(
                         from_=f'whatsapp:{businessphone}',  
-                        body="*Bridged Convestion🤝*\n\n📨 To send a message to your child. \n*Use this format:* _command: 'Your message'_. \n\n👉🎯 Click on the image above to see an example\n\n 0. To show menu🏠 ",
+                        body="*Bridged Conversation🤝*\n\n📨 To send a message to your child. \n*Use this format:* _command: 'Your message'_. \n\n👉🎯 Click on the image above to see an example\n\n 0. To show menu🏠 ",
                         media_url="https://api.twilio.com/2010-04-01/Accounts/AC9cfdfeaa5bce698906cff658aaf42499/Messages/MM14612e75d76a343d54da6bbfaf383032/Media/ME60f258fc4c090240c54b51cf9351b8ea" ,    
                         to=userPhone)
                     return http.HttpResponse("200")
@@ -227,7 +227,9 @@ def bot(request):
                     message = client.messages.create(
                         from_=f'whatsapp:{businessphone}',  
                         body=" LENOKIDS for kids infoℹ️*\n\n"+
-                             "Please 🙏 visit our website for Lenokids packages📦 and pricing🔖. \n*Website link:* www.lenokids.co.za.\f\F\\n\n 0. To show menu🏠 ",
+                             "Please 🙏 visit our website for Lenokids packages📦 and pricing🔖.\n\n 0. To show menu🏠 ",
+                            #=======Website still inactive==========
+                            #"Please 🙏 visit our website for Lenokids packages📦 and pricing🔖. \n*Website link:* www.lenokids.co.za.\f\F\\n\n 0. To show menu🏠 ",
                         to=userPhone)
                     return http.HttpResponse("200")
                 
@@ -235,7 +237,7 @@ def bot(request):
                 elif ('c' == str(request.POST['Body']).lower()):
                     message = client.messages.create(
                         from_=f'whatsapp:{businessphone}',  
-                        body="*Customer Service👨‍💻*\n\n*Business Hours⏰*\nMon-Fri 8:30am - 4:30pm\nSat 9:00am - 3:00pm\n\n*Contact Us*\n *☎️Call:* +27 71 157 3218 \n*📧Email:* helpdesk@lenokids.co.za \n\n 0. To show menu🏠",
+                        body="*Customer Service👨‍💻*\n\n*Business Hours⏰*\nMon-Fri 8:30am - 4:30pm\nSat 9:00am - 3:00pm\n\n*Contact Us*\n *☎️Call:* +27 63 091 6423 \n*📧Email:* lenokids.za@gmail.com \n\n 0. To show menu🏠",
                         to=userPhone)
                     return http.HttpResponse("200")
                 
@@ -259,8 +261,8 @@ def bot(request):
                 if ('r' == request.POST['Body'].lower()):
                     message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
-                    body="*Registration*\n\n*I will need 📌*"+
-                    "\n\n 1️⃣ Email: you'll recieve updates and child's progress \n 2️⃣ Childs phone number \n 3️⃣ Child Grade\n\nPlease proceed below",  
+                    body="*Registration*\n\n*To get started, I'll will need 📌:*"+
+                    "\n\n 1️⃣ Email for child's progress and updates \n 2️⃣ Child's phone number \n 3️⃣ Child's Grade\n\nPlease reply with your email:",  
                     to=userPhone)
                     message = client.messages.create( 
                         from_=f'whatsapp:{businessphone}',  
@@ -281,7 +283,7 @@ def bot(request):
                 if ('@' in request.POST['Body'].lower()):
                     message = client.messages.create( 
                         from_=f'whatsapp:{businessphone}',  
-                        body="Note: Confirmation will be sent, CH {email@domain.com} to update email📧\n\n*Child phone number📞*. Use this Fomart: +2774674747",      
+                        body="Note: Confirmation will be sent! \n To update your email📧: enter *CH {email@domain.com}* \n\n To proceed: \n *Enter Child number📞*. Use this Fomart: *+2774674747*",      
                         to=userPhone)
                     port = 465  # For SSL
                     password = "ondirlobvdyqvpba"
