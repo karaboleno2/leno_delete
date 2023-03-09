@@ -348,7 +348,7 @@ def bot(request):
         time.sleep(2)
         message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
-                    body="*Menu🏠: Learning and playing games*  \n\nHow can I help you today🤗? \nPlease choose from the options below: \n\n1. *Classes 🎒 and Games🎮*. \nLet us learn new things and play games together\n\n2. *Story Telling*📖\n Do you love stories❓ \n\n3. *Handwritting*✍\n Let me teach you how to write numbers and letter\n\n4. *Define and pronounce*🗣 \n I can pronounce and define words for you".format(userName),      
+                    body="*Menu🏠: Learning and playing games*  \n\nHow can I help you today🤗? \nPlease choose from the options below: \n\n1. *Classes 🎒 and Games🎮*. \nLet us learn new things and play games together\n\n2. *Story Telling*📖\n Do you love stories❓ \n\n3. *Handwritting*✍\n Let me teach you how to write numbers and letters\n\n4. *Define and pronounce*🗣 \n I can pronounce and define words for you".format(userName),      
                     to=userPhone)
         wks.update('R'+row+'C14', 'menu')
         return http.HttpResponse("200")
@@ -372,7 +372,7 @@ def bot(request):
                     
                 message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
-                    body="*Instrcutions📌* "+
+                    body="*Instructions📌* "+
                     "\n\n1️⃣ First, we attend a class and 2️⃣ then play games🎮. "+
                     f"\n\nLet's meet in class👩‍🏫. \n*Class link🔗 {classlinks[0]}*",  
                     media_url="https://api.twilio.com/2010-04-01/Accounts/AC9cfdfeaa5bce698906cff658aaf42499/Messages/MM1e740520fd8353935def4751366756cc/Media/MEe2fe62132d4365e42ffbbc4ada2658db",     
@@ -380,26 +380,26 @@ def bot(request):
                 time.sleep(2) 
                 message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
-                    body="*Instrcutions📌* \n\n3️⃣ When you are done with your class and playing games, I'll give you a homework🤸‍♀️\n\n✅When you are done send *Done* I'll give you a homework🤸‍♀️.",  
+                    body="*Instructions📌* \n\n3️⃣ After you are done with classes and games, send me a message that says *Done* \n\n✅I'll give you a fun homework to do📚🤸‍♀️♀️.",  
                     to=userPhone)
                 wks.update('R'+row+'C14', 'classes')
             elif ('2' in request.POST['Body'].lower() or 'story' in request.POST['Body'].lower()):
                 message = client.messages.create(
                     from_=f'whatsapp:{businessphone}',  
-                    body="*Instrcutions📌* \n\n1️⃣ First, I will tell you a story or give you a book \n2️⃣ Then when you done✅ listening/reading my story tell me by sending *Done* \n3️⃣ Now it will be your turn to tell a story🥺🤗 \n4️⃣ I will give you feedback once I'm done listening to you story🤗😍", 
+                    body="*Instructions📌* \n\n1️⃣ First, I'll tell you a story or give you a book to read.\n2️⃣ When you're done listening/reading, let me know by sending *Done*.\n3️⃣ Now it's your turn to tell a story! 🥺🤗\n4️⃣ I'll give you feedback after I listen to your story. 🤗😍", 
                     media_url='https://api.twilio.com/2010-04-01/Accounts/AC9cfdfeaa5bce698906cff658aaf42499/Messages/MM7380a84e9e4c56ae0bb361462629d283/Media/MEd53b3215a6d43e66df27cec67217e762',
                     to=userPhone)
                 time.sleep(2)
                 message = client.messages.create(
                     from_=f'whatsapp:{businessphone}',  
-                    body="1️⃣ I made this for you, I hope you enjoy my friend🤗❤️\n\n*Zuko's Story🎉* \nUse this link: \n*https://drive.google.com/file/d/19APc6HdZSmhDFXbcTCqI1PyCc5i8F4xm/view?usp=sharing*\n\n*Instrcutions📌*: \n\nSend *Done* when you done✅ listerning to my story",      
+                    body="*Zuko's Story🎉* \n1️⃣ I made this story for you, my friend! I hope you enjoy it. 🤗❤️❤️ \nUse this link to listen to the story: \n*https://drive.google.com/file/d/19APc6HdZSmhDFXbcTCqI1PyCc5i8F4xm/view?usp=sharing*\n\n*Instructions📌*: \n\nInstructions: ✅Send: *Done* when you finish listening to my story ",      
                     #media_url="https://public.bl.files.1drv.com/y4mxndLK0QG-jREsBaMIsmvfLBRZXPgsI4kTNLnVbVjhX3wxkjPXK9dTtr1Vj2CSOBkauo2d3U1vtEAVyiVjoeqSOuSLQFPjREsnXzzlwiZaZ0GQbxXKe_ZAYdnzWCZI9ex2cm-2DjY-wEXQGUTi-1xVcpBty6wLwzBVq8bYiMPdx_ywabPCUMlYCu5kXVr3fYfXxjBKhztiYxd1xCbKtkzj7Yw2pvds9kjwXrz5VwbUNc",
                     to=userPhone)
                 wks.update('R'+row+'C14', 'story')
             elif ('3' in str(request.POST['Body']).lower() or 'hand' in request.POST['Body'].lower() or 'handwritting' in request.POST['Body'].lower()):
                 message = client.messages.create(
                     from_=f'whatsapp:{businessphone}',  
-                    body="*Instrcutions📌* \n\n 1️⃣ You will play tracing games🎮\n 2️⃣ Let me know when you are done playing \n3️⃣ I will send you tasks", 
+                    body="*🎉 Welcome to our tracing games! 🎉* \n\n 1️⃣ You will play tracing games🎮\n 2️⃣ Let me know when you are done playing \n3️⃣ I will send you fun tasks to trace", 
                     media_url="https://api.twilio.com/2010-04-01/Accounts/AC9cfdfeaa5bce698906cff658aaf42499/Messages/MM6cae6ac6b18549cbc8b64e2e26872b6f/Media/ME61ebdc8924a303dc0d1eb223eea536de",     
                     to=userPhone)
                 wks.update('R'+row+'C14', 'handwritting')
@@ -412,20 +412,20 @@ def bot(request):
             elif ('4' in str(request.POST['Body']).lower() or 'define' in request.POST['Body'].lower() or 'pronounc' in request.POST['Body'].lower()):
                 message = client.messages.create(
                     from_=f'whatsapp:{businessphone}',  
-                    body="*Define*🗣 \n\n*Instrcutions📌*: use this commands: DF <Your word>",      
+                    body="*Define*🗣 \n\n*Instructions📌*: use this commands: DF <Your word>",      
                     media_url="https://api.twilio.com/2010-04-01/Accounts/AC9cfdfeaa5bce698906cff658aaf42499/Messages/MM3ee0dc2c36368afa877b6877ad4ff76d/Media/ME0a551e002b3ef5eeb3119709cb9cc48e",     
                     to=userPhone)
                 time.sleep(2)
                 message = client.messages.create(
                     from_=f'whatsapp:{businessphone}',  
-                    body="*Pronounce*🗣 \n\n*Instrcutions📌*: use this commands: Pn <Your word>",      
+                    body="*Pronounce*🗣 \n\n*Instructions📌*: use this commands: Pn <Your word>",      
                     media_url="https://api.twilio.com/2010-04-01/Accounts/AC9cfdfeaa5bce698906cff658aaf42499/Messages/MM5b38e0cb8fb1df7e915f147fcd1f95c2/Media/ME583bc7cb955586e5bc6b71240c3cd3bf",     
                     to=userPhone)
 
             elif ('5' in str(request.POST['Body']).lower()):
                 message = client.messages.create(
                     from_=f'whatsapp:{businessphone}',  
-                    body='*User Manual*📜 \n\nSorry, I will let you know when the manual is ready',      
+                    body='*User Manual*📜 \n\n Thank You!, You will receive the manual on your email',      
                     media_url="https://api.twilio.com/2010-04-01/Accounts/AC9cfdfeaa5bce698906cff658aaf42499/Messages/MM254b5dca92440a68c4972e94f82e44ed/Media/ME073e5ca7441f865189b8503fa23c8e91",     
                     to=userPhone)
             elif ('df' in str(request.POST['Body']).lower()):
@@ -438,7 +438,7 @@ def bot(request):
             elif ('pn' in str(request.POST['Body']).lower()):
                 message = client.messages.create(
                     from_=f'whatsapp:{businessphone}',  
-                    body="❗️This service is currently on mantainance I am really sorry🙏🙇‍♀️",      
+                    body="❗️This service is currently on mantainance, Sorry inconvenience🙏🙇‍♀️",      
                     media_url="https://api.twilio.com/2010-04-01/Accounts/AC9cfdfeaa5bce698906cff658aaf42499/Messages/MM5c1ca79f062ef9aff8f19d4cd4cd4086/Media/ME19f313913b3de8baeddbb43c62ff3b2a",     
                     to=userPhone)
             else:
@@ -466,7 +466,7 @@ def bot(request):
                 else:
                     message = client.messages.create( 
                         from_=f'whatsapp:{businessphone}',  
-                        body=f"Sorry {userName} I am still prepareing a game for this lesson, \n 😁 We are done for the day. Have a lovely day",      
+                        body=f"Sorry {userName} I am still preparing a game for this lesson, \n 😁 We are done for the day. Have a lovely day",      
                         to=userPhone)
 
                 wks.update('R'+row+'C14', 'menu')
@@ -516,7 +516,7 @@ def bot(request):
             if (request.POST['NumMedia']!='0'):
                 message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
-                    body="🙏 I give you feedback soon\n\nDo you what to continue❓\n0. menu🏠".format(userName),      
+                    body="🙏 I will give you feedback soon\n\nDo you what to continue❓\nType *0* to go back to the menu🏠.".format(userName),      
                     to=userPhone)
                 time.sleep(3)
 
@@ -525,20 +525,20 @@ def bot(request):
             elif ('done' in request.POST['Body'].lower()):
                 message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
-                    body="*How to hold a pen🖊*\n\n*📌Note:* If you do not know how to hold a pen🖊 visit this link: *https://youtu.be/RclxBdiuvOM*.\nif you know please start your task👇".format(userName),      
+                    body="*Let's learn how to hold a pen! 🖊*\n\n*📌Note:* If you're not sure how to hold a pen🖊, check out this video: *https://youtu.be/RclxBdiuvOM*.\nIf you already know, then you're ready to start your task! 👇".format(userName),      
                     to=userPhone) 
                 question=images[random.randint(0, 9)]
                 time.sleep(4)
                 message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
-                    body="*Task✍*, \n\n*Instrcutions📌*: write the above👆 number on your book, when done✅ send the picture to me🤗.".format(userName),
+                    body="*Let's get started on our task! ✍*, \n\n*Instructions📌*: Write the number above 👆 on your book.\nWhen you're done, send me a picture! 🤗".format(userName),
                     media_url=question,       
                     to=userPhone)
             elif ('1' in request.POST['Body'].lower() or 'yes' in request.POST['Body'].lower()): 
                 question=images[random.randint(0, 9)]
                 message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
-                    body="*Task✍*, \n\nWrite the above👆 number on your book, when done✅ send the picture to me🤗.".format(userName),
+                    body="*Let's get started on our task! ✍*, \n\n*Instructions📌*: Write the number above 👆 on your book.\nWhen you're done, send me a picture! 🤗".format(userName),
                     media_url=question,       
                     to=userPhone)
             elif ('menu' in request.POST['Body'].lower() or '0' in request.POST['Body'].lower()):
@@ -554,12 +554,12 @@ def bot(request):
             if ('done' in request.POST['Body'].lower() or 'yes' in request.POST['Body'].lower()  or 'thank' in request.POST['Body'].lower()):
                 message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
-                    body="Awesome Thank you😊, \n\n 3️⃣now it's your turn to tell a story, send text or voice".format(userName),      
+                    body="Awesome! 😊, \n\n 3️⃣Now it's your turn to tell a story. \nSend me a text or voice note! 🎤".format(userName),      
                     to=userPhone)
             elif (request.POST['NumMedia']!='0'):
                 message = client.messages.create( 
                     from_=f'whatsapp:{businessphone}',  
-                    body="Thank you {} 😊\n\n I'll listen to you story, I'll give you feedback soon \n0. menu  ".format(userName),      
+                    body="Thank you {} 😊\n\n I'll listen to your story. I'll give you feedback soon. \nType *0* to go back to the menu🏠.  ".format(userName),      
                     to=userPhone)
             elif ('menu' in request.POST['Body'].lower() or '0' in request.POST['Body'].lower()):
                 sendMenu(userPhone)
@@ -568,7 +568,7 @@ def bot(request):
     else:
             message = client.messages.create( 
                 from_=f'whatsapp:{businessphone}',  
-                body="Hey I don't get that ", 
+                body="Sorry, I didn't understand that. 🤔", 
                 to=userPhone)
     return http.HttpResponse("200")
 
